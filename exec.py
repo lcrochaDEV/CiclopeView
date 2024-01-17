@@ -5,9 +5,11 @@ import re
 #ClassCommand.ControllerConnect("device_type", "host", "command", 'port'(opcional, default 22), 'secret'(opcional))
 
 #ipEndHop = "10.18.228.193"
-#ipEndHop = "rack2black.hackone.com.br"
 #ip_Destination = "10.18.228.196"
 device_type = "cisco_ios_telnet"
+#port = "22"
+
+ipEndHop = "rack2black.hackone.com.br"
 port = "41479"
 
 #ipEndHop = input("IP End Hop: ")
@@ -15,7 +17,7 @@ port = "41479"
 #port = input("Port: ")
 #device_type = input("Device: ")
 
-ipEndHop = input("IP End Hop: ")
+#ipEndHop = input("IP End Hop: ")
 
 def validationText(text):
     if re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\w[a-z]+\d{2}\.\w+|\w+\.\d{2}|\w+\.\w+.com.\w+", text):

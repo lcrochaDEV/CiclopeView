@@ -53,7 +53,7 @@ class ControllerConnect:
         except:
             print(f'Sem acesso ao Roteador {self.host}')
 
-    def config(self):
+    def commandConfig(self):
         with ConnectHandler(**self.__device__()) as conn:
             if not conn.check_enable_mode():
                 conn.enable()
