@@ -32,6 +32,7 @@ class ControllerConnect:
             return connection.send_command(f'{self.command}')       
             #print("-"*100)
             #print(f'{self.command}# \n{output}')
+
         except:
             print(f'Sem acesso ao Roteador {self.host}')
 
@@ -51,3 +52,9 @@ class ControllerConnect:
                return f"{interface['interface']}"
         except:
             print(f'Sem acesso ao Roteador {self.host}')
+
+    def config(self):
+        with ConnectHandler(**self.__device__()) as conn:
+            if not conn.check_enable_mode():
+                conn.enable()
+                return conn.send_config_set(self.command)

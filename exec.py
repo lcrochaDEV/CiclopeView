@@ -27,7 +27,7 @@ validationText(ipEndHop)
 
 #INICIO DO PROGRAMA
 def send_show_command_init():
-    command = ["sh ver | s uptime", "sh clock", f"show ip int br", "sh ver"]
+    command = ["sh ver | s uptime", "sh clock", "show ip int br", "sh ver"]
     for commands in command:
         ios = ClassCommand.ControllerConnect(f"{device_type}", f"{ipEndHop}", f"{commands}", f"{port}")
         printInit = ios.commandInit()
