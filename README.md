@@ -1,4 +1,4 @@
-## Desenvolvido em Python3.11.2
+ ## Desenvolvido em Python3.11.2 <img src="./imagens/olho.png" width="50px" margin="0" padding="0">
 
 ### Instalação de Bibliotecas:
 
@@ -34,5 +34,6 @@
 ```
 
 ![netmiko](https://i0.wp.com/networkautomationlane.in/wp-content/uploads/2021/08/netmiko.png?fit=640%2C244&ssl=1)
+
 
 
