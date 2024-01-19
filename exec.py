@@ -23,16 +23,19 @@
 #                            ++++++                            ++++++                                
 #                                    ++++++++++++++++++++++++                                        
 
+#EXEMPLO COMMAND
+#ClassCommand.ControllerConnect("device_type", "host", "command", 'port'(opcional, default 22), 'secret'(opcional))
+
+from ControllerClass import ClassConsole
 from ControllerClass import ClassCommand
 import re
 
-#EXEMPLO COMMAND
-#ClassCommand.ControllerConnect("device_type", "host", "command", 'port'(opcional, default 22), 'secret'(opcional))
 
 #ipEndHop = "10.18.228.193"
 #ip_Destination = "10.18.228.196"
 device_type = "cisco_ios_telnet"
 #port = "22"
+secret = ""
 
 ipEndHop = "rack2black.hackone.com.br"
 port = "41479"
@@ -41,8 +44,8 @@ port = "41479"
 #ip_Destination = input("IP Destination: ")
 #port = input("Port: ")
 #device_type = input("Device: ")
+commandConsole = input("Command: ")
 
-#ipEndHop = input("IP End Hop: ")
 
 def validationText(text):
     if re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\w[a-z]+\d{2}\.\w+|\w+\.\d{2}|\w+\.\w+.com.\w+", text):
@@ -51,6 +54,14 @@ def validationText(text):
         print("Host não encontrado!")  
         exit()
 validationText(ipEndHop)  
+
+#INICIO DO CONSOLE
+def send_show_console_init():
+    ios = ClassConsole.CommandConsole(f"{device_type}", f"{ipEndHop}", f"{commandConsole}", f"{port}")
+    printInit = ios.commandInit()
+    print("-"*100)
+    print(f'{printInit}')
+#send_show_console_init()
 
 #INICIO DO PROGRAMA
 def send_show_command_init():
@@ -61,8 +72,6 @@ def send_show_command_init():
         print("-"*100)
         print(f'{printInit}')
 send_show_command_init()
-
-
 
 #FUNÇÃO PROCURA SUB-INTERFACE
 

@@ -7,7 +7,6 @@ import os
 loginDCN = os.getenv("loginDCN")
 passwDCN = os.getenv("passwDCN")
 
-
 class ControllerConnect:
     def __init__(self, device_type, host, command, port = "22", secret = "" ):
         self.device_type = device_type
@@ -26,13 +25,15 @@ class ControllerConnect:
             'secret': f'{self.secret}',     # optional, defaults to ''
         }
     
+
+    # expect_string="uptime" = FILTRANDO SAÍDA DE TEXTO
+    # read_timeout=20 = TEMPO DE DELAY PARA BUSCA
     def commandInit(self):
         try:
             connection = ConnectHandler(**self.__device__())
             return connection.send_command(f'{self.command}')       
             #print("-"*100)
             #print(f'{self.command}# \n{output}')
-
         except:
             print(f'Sem acesso ao Roteador {self.host}')
 
