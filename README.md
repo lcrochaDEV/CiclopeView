@@ -36,16 +36,16 @@ Retirado do Post [askubuntu](https://askubuntu.com/questions/1465218/pip-error-o
  * os
  * re
  * time
-
-
+ * fastapi
+ * uvicorn
 
 ```shell
-#sudo apt install python3-netmiko
-#sudo apt install python3-dotenv
+#pip install netmiko
+#pip install python-dotenv
 ```
 
 ## Observações:
-### Necessário verificar se o ntc-templates está instalado no pacote.
+### Necessário verificar se o ntc-templates está instalado no pacote netmiko, pacote fundamentala para busca informações em formato json, caso não esteja segue o coamando.
 
 ```shell
 #pip list | grep ntc-templates
@@ -54,10 +54,10 @@ Retirado do Post [askubuntu](https://askubuntu.com/questions/1465218/pip-error-o
 ## Comandos para Desinstalação:
 
 ```shell
-#sudo apt-get remove python3-netmiko 
-#sudo apt-get remove --auto-remove python3-netmiko 
-#sudo apt-get purge python3-netmiko 
-#sudo apt-get purge python3-netmiko 
+#pip uninstall netmiko 
+#pip uninstall --auto-remove netmiko 
+#pip uninstall purge netmiko 
+#pip uninstall purge netmiko 
 ```
 
 ### Lista de Pacotes Instalados no Windows/Linux
@@ -66,6 +66,11 @@ Retirado do Post [askubuntu](https://askubuntu.com/questions/1465218/pip-error-o
 #netmiko          4.3.0
 #ntc_templates    4.1.0
 #paramiko         3.4.0
+```
+### Acionameto do servidor uvicorn com reload automático
+
+```shell
+#uvicorn app:app --reload
 ```
 
 

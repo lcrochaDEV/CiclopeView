@@ -1,6 +1,4 @@
 from netmiko import ConnectHandler
-import json
-
 from dotenv import load_dotenv
 load_dotenv()
 import os
@@ -25,37 +23,20 @@ class ControllerConnect:
             'secret': f'{self.secret}',     # optional, defaults to ''
         }
     
-
-    # expect_string="uptime" = FILTRANDO SAÍDA DE TEXTO
-    # read_timeout=20 = TEMPO DE DELAY PARA BUSCA
-    def commandInit(self):
-        try:
-            connection = ConnectHandler(**self.__device__())
-            return connection.send_command(f'{self.command}')       
-            #print("-"*100)
-            #print(f'{self.command}# \n{output}')
-        except:
-            print(f'Sem acesso ao Roteador {self.host}')
-
-    def commandOne(self):
-        try:
-            connection = ConnectHandler(**self.__device__())
-            output = connection.send_command(f'{self.command}', use_textfsm=True)
-            return json.dumps(output, indent = 2)
-        except:
-            print(f'Sem acesso ao Roteador {self.host}')
-
-    def commandFilterAll(self):
+    def commandExe(self):
         try:
             connection = ConnectHandler(**self.__device__())
             return connection.send_command(f'{self.command}', use_textfsm=True)
-            for interface in output:
-               return f"{interface['interface']}"
         except:
-            print(f'Sem acesso ao Roteador {self.host}')
+            print(f'Sem acesso ao Roteador {self.host}, consulte o Administrador')
 
     def commandConfig(self):
-        with ConnectHandler(**self.__device__()) as conn:
-            if not conn.check_enable_mode():
-                conn.enable()
-                return conn.send_config_set(self.command)
+        try:
+            with ConnectHandler(**self.__device__()) as conn:
+                if not conn.check_enable_mode():
+                    conn.enable()
+                    conn.send_config_set(self.command)
+                    return 'Comandos Realizado com sucesso!'
+        except:
+            print(f'Sem acesso ao Roteador {self.host}, consulte o Administrador')
+
