@@ -75,8 +75,9 @@ Retirado do Post [askubuntu](https://askubuntu.com/questions/1465218/pip-error-o
 
 ### Estrutura do arquivo JSON para manipulação de dados
 
+
+#### Envio de um unico comando por http://127.0.0.1:8000/cli
 ```json
-//envio de um unico comando por http://127.0.0.1:8000/cli
 {
     "host": "192.168.0.1",
     "port": "41479",
@@ -84,7 +85,9 @@ Retirado do Post [askubuntu](https://askubuntu.com/questions/1465218/pip-error-o
     "secret": "",
     "command": "show ver"
 }
-//envio de uma lista comando por http://127.0.0.1:8000/config
+```
+#### Envio de uma lista comando por http://127.0.0.1:8000/config
+```json
 {
     "host": "rack2black.hackone.com.br",
     "port": "41479",
