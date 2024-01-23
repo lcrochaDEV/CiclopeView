@@ -7,11 +7,12 @@ passwDCN = os.getenv("passwDCN")
 
 class ControllerConnect:
     def __init__(self, device_type, host, command, port = "22", secret = "" ):
+    
         self.device_type = device_type
         self.host = host
         self.command = command
         self.port = port
-        self.secret = secret
+        self.secret = secret     
 
     def __device__(self):
         return {
@@ -28,7 +29,7 @@ class ControllerConnect:
             connection = ConnectHandler(**self.__device__())
             return connection.send_command(f'{self.command}', use_textfsm=True)
         except:
-            print(f'Sem acesso ao Roteador {self.host}, consulte o Administrador')
+            return f'Sem acesso ao Roteador {self.host}, consulte o Administrador'
 
     def commandConfig(self):
         try:
@@ -38,5 +39,5 @@ class ControllerConnect:
                     conn.send_config_set(self.command)
                     return 'Comandos Realizado com sucesso!'
         except:
-            print(f'Sem acesso ao Roteador {self.host}, consulte o Administrador')
+            return f'Sem acesso ao Roteador {self.host}, consulte o Administrador'
 

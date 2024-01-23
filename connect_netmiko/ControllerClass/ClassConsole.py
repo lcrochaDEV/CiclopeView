@@ -1,9 +1,7 @@
-
-from ControllerClass import ClassCommand
+from ControllerClass.ClassCommand import ControllerConnect
 from netmiko import ConnectHandler
-import json
 
-class CommandConsole(ClassCommand.ControllerConnect):
+class CommandConsole(ControllerConnect):
     def __init__(self, device_type, host, command, port = "22", secret = "" ):
         super().__init__(device_type, host, command, port, secret = "" )
 

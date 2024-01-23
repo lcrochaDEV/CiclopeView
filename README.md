@@ -32,12 +32,12 @@ Retirado do Post [askubuntu](https://askubuntu.com/questions/1465218/pip-error-o
 
  * netmiko
  * dotenv
- * json
  * os
  * re
  * time
  * fastapi
  * uvicorn
+ * pydantic
 
 ```shell
 #pip install netmiko
@@ -73,6 +73,24 @@ Retirado do Post [askubuntu](https://askubuntu.com/questions/1465218/pip-error-o
 #uvicorn app:app --reload
 ```
 
+### Estrutura do arquivo JSON para manipulção de dados
+
+```json
+{
+    "host": "192.168.0.1",
+    "port": "41479",
+    "device_type": "cisco_ios_telnet",
+    "secret": "",
+    "command": "show ver"
+}
+```
+
+### Enpoints:
+
+```
+http://127.0.0.1:8000/cli
+http://127.0.0.1:8000/config
+```
 
 ![netmiko](https://i0.wp.com/networkautomationlane.in/wp-content/uploads/2021/08/netmiko.png?fit=640%2C244&ssl=1)
 
