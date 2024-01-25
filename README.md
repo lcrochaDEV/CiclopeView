@@ -72,12 +72,21 @@ Retirado do Post [askubuntu](https://askubuntu.com/questions/1465218/pip-error-o
 #uvicorn app:app --reload
 ```
 
+### Enpoints:
+
+```
+http://127.0.0.1:8000/cli
+http://127.0.0.1:8000/config
+```
+
 ### Estrutura do arquivo JSON para manipulação de dados
 
 
 #### Envio de um unico comando por http://127.0.0.1:8000/cli
 ```json
 {
+    "username": "lucas",
+    "password": "cisco",
     "host": "192.168.0.1",
     "port": "41479",
     "device_type": "cisco_ios_telnet",
@@ -88,19 +97,14 @@ Retirado do Post [askubuntu](https://askubuntu.com/questions/1465218/pip-error-o
 #### Envio de uma lista comando por http://127.0.0.1:8000/config
 ```json
 {
+    "username": "lucas",
+    "password": "cisco",
     "host": "rack2black.hackone.com.br",
     "port": "41479",
     "device_type": "cisco_ios_telnet",
     "secret": "",
     "command": "['int e0', 'ip add 10.10.10.1 255.255.255.0', 'hostname Hulk']"
 }
-```
-
-### Enpoints:
-
-```
-http://127.0.0.1:8000/cli
-http://127.0.0.1:8000/config
 ```
 
 ![netmiko](https://i0.wp.com/networkautomationlane.in/wp-content/uploads/2021/08/netmiko.png?fit=640%2C244&ssl=1)
