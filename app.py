@@ -10,11 +10,13 @@ def methodGet():
 
 
 class Itens(BaseModel):
+   username: str
+   password: str
+   device_type : str
+   command: str
    host: str
    port: str
-   device_type : str
    secret: str
-   command: str
 
 @app.get("/host")
 def methodPost(itens:Itens):

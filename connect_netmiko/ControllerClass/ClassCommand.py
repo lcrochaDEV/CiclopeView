@@ -2,12 +2,14 @@ from netmiko import ConnectHandler
 from dotenv import load_dotenv
 load_dotenv()
 import os
-loginDCN = os.getenv("loginDCN")
-passwDCN = os.getenv("passwDCN")
+
+#loginDCN = os.getenv("loginDCN")
+#passwDCN = os.getenv("passwDCN")
 
 class ControllerConnect:
-    def __init__(self, device_type, host, command, port = "22", secret = "" ):
-    
+    def __init__(self, username, password, device_type, host, command, port = "22", secret = "" ):
+        self.username = username
+        self.password = password
         self.device_type = device_type
         self.host = host
         self.command = command
@@ -16,14 +18,13 @@ class ControllerConnect:
 
     def __device__(self):
         return {
+            'username': f'{self.username}',
+            'password': f'{self.password}',
             'device_type': f'{self.device_type}',
             'host': f'{self.host}',
-            'username': f'{loginDCN}',
-            'password': f'{passwDCN}',
             'port' : f'{self.port}',        # optional, defaults to 22
             'secret': f'{self.secret}',     # optional, defaults to ''
         }
-    
     def commandExe(self):
         try:
             connection = ConnectHandler(**self.__device__())

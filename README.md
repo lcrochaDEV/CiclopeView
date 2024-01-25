@@ -34,7 +34,6 @@ Retirado do Post [askubuntu](https://askubuntu.com/questions/1465218/pip-error-o
  * dotenv
  * os
  * re
- * time
  * fastapi
  * uvicorn
  * pydantic
