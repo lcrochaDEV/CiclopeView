@@ -85,8 +85,8 @@ http://127.0.0.1:8000/config
 #### Envio de um unico comando por http://127.0.0.1:8000/cli
 ```json
 {
-    "username": "lucas",
-    "password": "cisco",
+    "username": "username",
+    "password": "password",
     "host": "192.168.0.1",
     "port": "41479",
     "device_type": "cisco_ios_telnet",
